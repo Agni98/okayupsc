@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OkayUPSC — free study sites for the Civil Services</title>
+<meta name="description" content="Free study sites for the UPSC Civil Services examination: thinkers for Essay and Ethics, and the Constitution of India for polity.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg: #f6f4ef; --card: #ffffff; --ink: #1d1c1a; --soft: #55514a; --faint: #8b857b;
+    --line: #ded8cc; --accent: #9a3412; --navy: #1f2a44;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: "Segoe UI", Inter, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16171a; --card: #1e2024; --ink: #e8e6e1; --soft: #b3afa7; --faint: #7e7a72;
+      --line: #2f3238; --accent: #f0a882; --navy: #e8e6e1;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+    background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { flex: 1; width: 100%; max-width: 980px; margin: 0 auto; padding: 64px 20px 40px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { width: 40px; height: 40px; }
+  .brand b { font-family: var(--serif); font-size: 26px; letter-spacing: -.01em; color: var(--navy); }
+  h1 {
+    margin: 34px 0 10px; max-width: 18em;
+    font-family: var(--serif); font-size: clamp(30px, 5vw, 46px); line-height: 1.12; letter-spacing: -.02em;
+  }
+  .lede { margin: 0; max-width: 40em; font-size: 17px; color: var(--soft); }
+  .sites { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 40px; }
+  .site {
+    display: flex; flex-direction: column; gap: 14px; padding: 24px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    color: inherit; text-decoration: none;
+    transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+  }
+  .site:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+    box-shadow: 0 1px 2px rgba(31,26,18,.05), 0 8px 26px rgba(31,26,18,.08); transform: translateY(-2px);
+  }
+  .site img { width: 64px; height: 64px; border-radius: 15px; }
+  .site h2 { margin: 0; font-family: var(--serif); font-size: 23px; line-height: 1.2; }
+  .site p { margin: 0; font-size: 15px; color: var(--soft); }
+  .site ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+  .site li {
+    padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px;
+    font-size: 12.5px; font-weight: 600; color: var(--soft);
+  }
+  .go { margin-top: auto; padding-top: 4px; font-size: 15px; font-weight: 600; color: var(--accent); }
+  footer {
+    max-width: 980px; width: 100%; margin: 0 auto; padding: 20px 20px 34px;
+    border-top: 1px solid var(--line); font-size: 13px; color: var(--faint);
+  }
+  @media (prefers-reduced-motion: reduce) { .site { transition: none; } }
+  @media (max-width: 560px) { main { padding-top: 40px; } h1 { margin-top: 26px; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand"><img src="favicon.svg" alt=""><b>OkayUPSC</b></div>
+  <h1>Free study sites for the Civil Services examination</h1>
+  <p class="lede">Two sites, each built around what the papers ask, with plain explanations and nothing to sign up for.</p>
+
+  <div class="sites">
+    <a class="site" href="https://thinkers.okayupsc.com/">
+      <img src="thinkers.svg" alt="">
+      <h2>Thinkers for UPSC</h2>
+      <p>Philosophers and thinkers asked in UPSC Essay and GS-IV Ethics, with their core ideas, quotations and links to the syllabus.</p>
+      <ul><li>Essay</li><li>GS-IV Ethics</li><li>Quotations</li></ul>
+      <span class="go">Open Thinkers for UPSC &rarr;</span>
+    </a>
+    <a class="site" href="https://constitution.okayupsc.com/">
+      <img src="constitution.svg" alt="">
+      <h2>The Constitution of India for Exams</h2>
+      <p>The full bare text, Part by Part, with a plain reading of every article, the landmark judgments, mind maps and 870 practice MCQs.</p>
+      <ul><li>Polity</li><li>GS-II</li><li>Prelims MCQs</li></ul>
+      <span class="go">Open the Constitution &rarr;</span>
+    </a>
+  </div>
+</main>
+<footer>Not an official publication. Not produced by, endorsed by or affiliated with the Union Public Service Commission or any government body.</footer>
+</body>
+</html>
