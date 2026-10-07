@@ -2,89 +2,454 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>OkayUPSC — free study sites for the Civil Services</title>
-<meta name="description" content="Free study sites for the UPSC Civil Services examination: thinkers for Essay and Ethics, and the Constitution of India for polity.">
+<meta name="description" content="Free study sites for the UPSC Civil Services examination: the Constitution of India for Prelims and GS-II, and thinkers for Essay and GS-IV Ethics.">
+<meta name="theme-color" content="#1F2A44">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
   :root {
-    --bg: #f6f4ef; --card: #ffffff; --ink: #1d1c1a; --soft: #55514a; --faint: #8b857b;
-    --line: #ded8cc; --accent: #9a3412; --navy: #1f2a44;
-    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-    --sans: "Segoe UI", Inter, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --bg: #f6f2ea; --card: #ffffff; --ink: #1b1e27; --soft: #57534c; --faint: #8a847a;
+    --line: #e4ddd0; --line-2: #efe9de; --navy: #1f2a44; --navy-2: #2a3758;
+    --sun: #e8a13a; --accent: #b4541a; --accent-ink: #ffffff;
+    --pre: #2f5da8; --gs2: #2f7d4f; --gs4: #6a4aa8; --ess: #b4541a;
+    --shadow: 0 1px 2px rgba(31, 26, 18, .05), 0 6px 22px rgba(31, 26, 18, .07);
+    --shadow-up: 0 2px 4px rgba(31, 26, 18, .06), 0 14px 34px rgba(31, 26, 18, .12);
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Noto Serif", serif;
+    --sans: "Segoe UI", Inter, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #16171a; --card: #1e2024; --ink: #e8e6e1; --soft: #b3afa7; --faint: #7e7a72;
-      --line: #2f3238; --accent: #f0a882; --navy: #e8e6e1;
+      --bg: #121419; --card: #1b1e25; --ink: #ece8e1; --soft: #b4aea5; --faint: #7f7a72;
+      --line: #2c3038; --line-2: #23262d; --navy: #161d30; --navy-2: #1e2740;
+      --accent: #f0a35e; --accent-ink: #1b1308;
+      --pre: #7ea6ea; --gs2: #6cc08f; --gs4: #b49ae8; --ess: #f0a35e;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 22px rgba(0, 0, 0, .25);
+      --shadow-up: 0 2px 4px rgba(0, 0, 0, .35), 0 14px 34px rgba(0, 0, 0, .4);
+      color-scheme: dark;
     }
   }
   * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
-    margin: 0; min-height: 100vh; display: flex; flex-direction: column;
-    background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased;
   }
-  main { flex: 1; width: 100%; max-width: 980px; margin: 0 auto; padding: 64px 20px 40px; }
-  .brand { display: flex; align-items: center; gap: 12px; }
-  .brand img { width: 40px; height: 40px; }
-  .brand b { font-family: var(--serif); font-size: 26px; letter-spacing: -.01em; color: var(--navy); }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; }
+  svg.i { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.9;
+    stroke-linecap: round; stroke-linejoin: round; }
+  .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  :focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; border-radius: 8px; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative; color: #f4efe6;
+    background: radial-gradient(120% 90% at 85% 110%, #33406a 0%, var(--navy) 55%), var(--navy);
+    padding: max(14px, env(safe-area-inset-top)) 0 0;
+  }
+  .hero .wrap { position: relative; z-index: 3; }
+  .sky { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; }
+  .brand img { width: 34px; height: 34px; border-radius: 9px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .16); }
+  .brand b { font-family: var(--serif); font-size: 22px; letter-spacing: -.01em; }
+  .top-links { display: flex; gap: 4px; }
+  .top-links a {
+    padding: 7px 12px; border-radius: 999px; font-size: 14px; font-weight: 600; color: #d9d3c8;
+    transition: background .15s ease, color .15s ease;
+  }
+  .top-links a:hover { background: rgba(255, 255, 255, .09); color: #fff; }
   h1 {
-    margin: 34px 0 10px; max-width: 18em;
-    font-family: var(--serif); font-size: clamp(30px, 5vw, 46px); line-height: 1.12; letter-spacing: -.02em;
+    margin: 46px 0 22px; max-width: 13em;
+    font-family: var(--serif); font-weight: 600; font-size: clamp(34px, 5.6vw, 58px); line-height: 1.06; letter-spacing: -.025em;
   }
-  .lede { margin: 0; max-width: 40em; font-size: 17px; color: var(--soft); }
-  .sites { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 40px; }
+  h1 em { font-style: normal; color: var(--sun); position: relative; white-space: nowrap; }
+  h1 em::after {
+    content: ""; position: absolute; left: 2%; right: 2%; bottom: -.06em; height: .12em; border-radius: 99px;
+    background: var(--sun); opacity: .55;
+  }
+
+  .search { position: relative; max-width: 640px; }
+  .sbox {
+    display: flex; align-items: center; gap: 10px; height: 58px; padding: 0 8px 0 18px;
+    background: #fff; color: #1b1e27; border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(6, 10, 24, .35), 0 0 0 1px rgba(255, 255, 255, .5);
+  }
+  .sbox svg.i { width: 21px; height: 21px; color: #8a847a; }
+  .sbox input {
+    flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: transparent;
+    font: inherit; font-size: 17px; color: inherit;
+  }
+  .sbox input::placeholder { color: #8f897f; }
+  .sbox input::-webkit-search-cancel-button { display: none; }
+  .sbox kbd {
+    font: 600 12px var(--sans); color: #8a847a; border: 1px solid #ddd6ca; border-radius: 6px; padding: 2px 7px;
+  }
+  .sbox .go {
+    display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0;
+    border-radius: 12px; background: var(--navy); color: #fff; cursor: pointer;
+  }
+  .sugg {
+    position: absolute; z-index: 5; left: 0; right: 0; top: calc(100% + 8px); padding: 6px;
+    background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 16px;
+    box-shadow: var(--shadow-up); max-height: min(70vh, 460px); overflow: auto;
+  }
+  .sugg[hidden] { display: none; }
+  .sg { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 11px; }
+  .sg.on, .sg:hover { background: var(--line-2); }
+  .sg-k {
+    flex: none; min-width: 66px; padding: 3px 0; border-radius: 7px; text-align: center;
+    font-size: 11.5px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase;
+  }
+  .k-c { color: var(--gs2); background: color-mix(in srgb, var(--gs2) 13%, transparent); }
+  .k-t { color: var(--gs4); background: color-mix(in srgb, var(--gs4) 13%, transparent); }
+  .sg-t { min-width: 0; display: flex; flex-direction: column; }
+  .sg-t b { font-weight: 600; font-size: 15px; }
+  .sg-t small { color: var(--soft); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .sg-sep { height: 1px; margin: 5px 8px; background: var(--line); }
+
+  .try { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0 0; max-width: 680px; }
+  .try span { font-size: 13px; font-weight: 600; color: #a9a294; margin-right: 2px; }
+  .try a {
+    padding: 6px 13px; border-radius: 999px; font-size: 14px; color: #ede7dc;
+    background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .14);
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .try a:hover { background: rgba(255, 255, 255, .14); border-color: rgba(255, 255, 255, .28); }
+
+  .dawn { position: absolute; right: -40px; bottom: 0; width: min(560px, 62vw); height: auto; z-index: 0; pointer-events: none; }
+  .hero-pad { height: 64px; }
+  .tricolour { position: relative; z-index: 1; display: flex; height: 5px; }
+  .tricolour i { flex: 1; }
+  .tricolour i:nth-child(1) { background: #e8822c; }
+  .tricolour i:nth-child(2) { background: #f4efe6; }
+  .tricolour i:nth-child(3) { background: #2e8b4f; }
+
+  /* ---------- sections ---------- */
+  main { padding-bottom: 28px; }
+  section { margin-top: 44px; }
+  .sec-h {
+    display: flex; align-items: center; gap: 10px; margin: 0 0 16px;
+    font-family: var(--serif); font-weight: 600; font-size: 26px; letter-spacing: -.01em;
+  }
+  .sec-h small { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--faint); letter-spacing: 0; }
+
+  /* today */
+  .today-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 18px; }
+  .tc {
+    display: flex; flex-direction: column; gap: 12px; min-height: 290px; padding: 22px 22px 20px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow);
+  }
+  .tc-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .tc-kick {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--faint);
+  }
+  .tc-art .tc-kick { color: var(--gs2); }
+  .tc-thk .tc-kick { color: var(--gs4); }
+  .tc-next {
+    display: inline-flex; align-items: center; gap: 6px; padding: 6px 11px; border-radius: 999px; cursor: pointer;
+    background: transparent; border: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--soft);
+  }
+  .tc-next:hover { border-color: var(--faint); color: var(--ink); }
+  .tc-next svg.i { width: 15px; height: 15px; }
+  .tc-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+  .tc-label b { font-family: var(--serif); font-size: 34px; line-height: 1.05; letter-spacing: -.02em; }
+  .tier { font-size: 12.5px; font-weight: 600; color: var(--soft); }
+  .tier::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: var(--sun); vertical-align: 1px; }
+  .tc-title { margin: -4px 0 0; font-size: 18px; font-weight: 600; line-height: 1.35; }
+  .tc-title a:hover { color: var(--accent); }
+  .tc-text { margin: 0; color: var(--soft); font-size: 15.5px; }
+  .tc-acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 4px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 16px; border-radius: 12px;
+    font-size: 15px; font-weight: 600; border: 1px solid var(--line); background: var(--card);
+    transition: border-color .15s ease, background .15s ease, transform .15s ease;
+  }
+  .btn:hover { border-color: var(--faint); }
+  .btn.pri { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .btn.pri:hover { filter: brightness(1.06); }
+  .btn svg.i { width: 16px; height: 16px; }
+
+  .tk-head { display: flex; align-items: center; gap: 16px; }
+  .tk-face {
+    position: relative; flex: none; width: 76px; height: 76px; border-radius: 50%; overflow: hidden;
+    display: grid; place-items: center; background: color-mix(in srgb, var(--gs4) 16%, var(--card));
+    color: var(--gs4); font-family: var(--serif); font-size: 26px; font-weight: 600;
+    box-shadow: 0 0 0 3px var(--card), 0 0 0 4px var(--line);
+  }
+  .tk-face img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
+  .tk-name { display: flex; flex-direction: column; min-width: 0; }
+  .tk-name b { font-family: var(--serif); font-size: 28px; line-height: 1.1; letter-spacing: -.015em; }
+  .tk-name small { margin-top: 4px; font-size: 13.5px; color: var(--soft); }
+  .tk-q {
+    position: relative; margin: 4px 0 0; padding: 0 0 0 18px; border-left: 3px solid var(--sun);
+    font-family: var(--serif); font-size: 20px; line-height: 1.4; font-style: italic;
+  }
+
+  /* papers */
+  .paper-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .paper {
+    --c: var(--pre);
+    display: flex; flex-direction: column; padding: 18px 14px 10px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow);
+    border-top: 4px solid var(--c);
+  }
+  .paper.gs2 { --c: var(--gs2); } .paper.gs4 { --c: var(--gs4); } .paper.ess { --c: var(--ess); }
+  .p-head { display: flex; align-items: center; gap: 11px; margin: 0 2px 10px; }
+  .p-ico {
+    display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; flex: none;
+    color: var(--c); background: color-mix(in srgb, var(--c) 13%, transparent);
+  }
+  .p-ico svg.i { width: 21px; height: 21px; }
+  .p-head h3 { margin: 0; font-size: 18px; line-height: 1.2; }
+  .p-head small { display: block; font-size: 13px; font-weight: 500; color: var(--faint); }
+  .paper ul { margin: 0; padding: 0; list-style: none; }
+  .paper li + li { border-top: 1px solid var(--line-2); }
+  .paper li a {
+    display: flex; align-items: center; gap: 8px; min-height: 46px; padding: 6px 5px; border-radius: 10px;
+    font-size: 15px; font-weight: 500;
+  }
+  .paper li a:hover { background: var(--line-2); }
+  .paper li a span { flex: 1; }
+  .paper li a em { font-style: normal; font-size: 13px; font-weight: 600; color: var(--faint); }
+  .paper li a svg.i { width: 15px; height: 15px; color: var(--faint); }
+  .paper li a:hover svg.i { color: var(--c); }
+
+  /* sites */
+  .site-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .site {
-    display: flex; flex-direction: column; gap: 14px; padding: 24px;
-    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
-    color: inherit; text-decoration: none;
-    transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+    position: relative; display: flex; flex-direction: column; gap: 16px; padding: 24px; overflow: hidden;
+    background: var(--card); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow);
+    transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease;
   }
-  .site:hover {
-    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
-    box-shadow: 0 1px 2px rgba(31,26,18,.05), 0 8px 26px rgba(31,26,18,.08); transform: translateY(-2px);
+  .site::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; }
+  .site.thk::before { background: linear-gradient(90deg, #1f2a44, #e8a13a); }
+  .site.coi::before { background: linear-gradient(90deg, #c2410c, #f4efe6 50%, #15803d); }
+  .site:hover { box-shadow: var(--shadow-up); transform: translateY(-2px); }
+  .s-head { display: flex; align-items: center; gap: 16px; }
+  .s-head img { width: 64px; height: 64px; border-radius: 16px; flex: none; }
+  .s-head h3 { margin: 0; font-family: var(--serif); font-size: 23px; line-height: 1.2; }
+  .s-head p { margin: 3px 0 0; color: var(--soft); font-size: 15px; }
+  .s-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0; }
+  .s-stats div { padding: 10px 12px; border-radius: 12px; background: var(--line-2); }
+  .s-stats dt { font-family: var(--serif); font-size: 22px; font-weight: 600; line-height: 1.1; }
+  .s-stats dd { margin: 2px 0 0; font-size: 12.5px; color: var(--soft); }
+  .s-go { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--accent); }
+  .site:hover .s-go svg.i { transform: translateX(3px); }
+  .s-go svg.i { transition: transform .15s ease; }
+
+  footer { margin-top: 40px; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px;
+    padding-top: 20px; padding-bottom: max(28px, env(safe-area-inset-bottom)); font-size: 13px; color: var(--faint); }
+  footer p { margin: 0; max-width: 46em; }
+  footer nav { display: flex; gap: 16px; }
+  footer nav a { font-weight: 600; color: var(--soft); }
+  footer nav a:hover { color: var(--accent); }
+
+  @media (max-width: 1100px) {
+    .paper-grid { grid-template-columns: repeat(2, 1fr); }
   }
-  .site img { width: 64px; height: 64px; border-radius: 15px; }
-  .site h2 { margin: 0; font-family: var(--serif); font-size: 23px; line-height: 1.2; }
-  .site p { margin: 0; font-size: 15px; color: var(--soft); }
-  .site ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
-  .site li {
-    padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px;
-    font-size: 12.5px; font-weight: 600; color: var(--soft);
+  @media (max-width: 820px) {
+    .today-grid, .site-grid { grid-template-columns: 1fr; }
+    .tc { min-height: 0; }
   }
-  .go { margin-top: auto; padding-top: 4px; font-size: 15px; font-weight: 600; color: var(--accent); }
-  footer {
-    max-width: 980px; width: 100%; margin: 0 auto; padding: 20px 20px 34px;
-    border-top: 1px solid var(--line); font-size: 13px; color: var(--faint);
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    .top-links { display: none; }
+    h1 { margin: 26px 0 18px; }
+    .sbox { height: 54px; padding-left: 14px; }
+    .sbox kbd { display: none; }
+    .sbox input { font-size: 16px; }
+    .dawn { width: 300px; right: -70px; opacity: .55; }
+    .hero-pad { height: 40px; }
+    section { margin-top: 34px; }
+    .sec-h { font-size: 23px; }
+    .paper-grid { grid-template-columns: 1fr; }
+    .tc { padding: 18px 16px 16px; border-radius: 18px; }
+    .tc-label b { font-size: 30px; }
+    .tk-face { width: 64px; height: 64px; }
+    .tk-name b { font-size: 24px; }
+    .tk-q { font-size: 18px; }
+    .site { padding: 20px 16px; }
+    .s-head img { width: 54px; height: 54px; border-radius: 14px; }
+    .s-stats div { padding: 8px 10px; }
+    .s-stats dt { font-size: 19px; }
   }
-  @media (prefers-reduced-motion: reduce) { .site { transition: none; } }
-  @media (max-width: 560px) { main { padding-top: 40px; } h1 { margin-top: 26px; } }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; }
+  }
 </style>
+<script src="data.js" defer></script>
+<script src="home.js" defer></script>
 </head>
 <body>
-<main>
-  <div class="brand"><img src="favicon.svg" alt=""><b>OkayUPSC</b></div>
-  <h1>Free study sites for the Civil Services examination</h1>
-  <p class="lede">Two sites, each built around what the papers ask, with plain explanations and nothing to sign up for.</p>
+<header class="hero">
+  <div class="wrap">
+    <nav class="top" aria-label="Sites">
+      <a class="brand" href="./"><img src="favicon.svg" alt="" width="34" height="34"><b>OkayUPSC</b></a>
+      <div class="top-links">
+        <a href="https://constitution.okayupsc.com/">Constitution</a>
+        <a href="https://thinkers.okayupsc.com/">Thinkers</a>
+      </div>
+    </nav>
 
-  <div class="sites">
-    <a class="site" href="https://thinkers.okayupsc.com/">
-      <img src="thinkers.svg" alt="">
-      <h2>Thinkers for UPSC</h2>
-      <p>Philosophers and thinkers asked in UPSC Essay and GS-IV Ethics, with their core ideas, quotations and links to the syllabus.</p>
-      <ul><li>Essay</li><li>GS-IV Ethics</li><li>Quotations</li></ul>
-      <span class="go">Open Thinkers for UPSC &rarr;</span>
-    </a>
-    <a class="site" href="https://constitution.okayupsc.com/">
-      <img src="constitution.svg" alt="">
-      <h2>The Constitution of India for Exams</h2>
-      <p>The full bare text, Part by Part, with a plain reading of every article, the landmark judgments, mind maps and 870 practice MCQs.</p>
-      <ul><li>Polity</li><li>GS-II</li><li>Prelims MCQs</li></ul>
-      <span class="go">Open the Constitution &rarr;</span>
-    </a>
+    <h1>What will you study <em>today</em>?</h1>
+
+    <form class="search" id="search" role="search" autocomplete="off">
+      <div class="sbox">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="An article, a case or a thinker" spellcheck="false"
+               role="combobox" aria-label="Search both sites" aria-autocomplete="list"
+               aria-controls="sugg" aria-expanded="false">
+        <kbd>/</kbd>
+        <button class="go" type="submit" aria-label="Search">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="sugg" id="sugg" role="listbox" aria-label="Suggestions" hidden></div>
+    </form>
+
+    <div class="try">
+      <span>Try</span>
+      <a href="https://constitution.okayupsc.com/#/article/21">Article 21</a>
+      <a href="https://constitution.okayupsc.com/#/judgment/kesavananda-bharati-1973">Kesavananda Bharati</a>
+      <a href="https://thinkers.okayupsc.com/#gandhi">Gandhi</a>
+      <a href="https://constitution.okayupsc.com/#/search/basic%20structure">Basic structure</a>
+      <a href="https://thinkers.okayupsc.com/#kant">Kant</a>
+      <a href="https://thinkers.okayupsc.com/#/cases">Ethics case studies</a>
+    </div>
+    <div class="hero-pad"></div>
   </div>
+
+  <div class="sky" aria-hidden="true">
+  <svg class="dawn" viewBox="0 0 560 300">
+    <defs>
+      <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#f3b45a" stop-opacity=".55"/>
+        <stop offset="1" stop-color="#f3b45a" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="sunfill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f2b55e"/>
+        <stop offset="1" stop-color="#e2832c"/>
+      </linearGradient>
+    </defs>
+    <circle cx="350" cy="190" r="170" fill="url(#glow)"/>
+    <circle cx="350" cy="190" r="86" fill="url(#sunfill)" opacity=".92"/>
+    <path d="M0 236 C70 214 130 190 200 192 C270 194 300 226 370 230 C440 234 500 206 560 196 L560 300 L0 300 Z" fill="#2a3758"/>
+    <path d="M0 262 C90 240 170 228 250 238 C330 248 380 268 460 262 C500 259 530 250 560 244 L560 300 L0 300 Z" fill="#232e4b"/>
+  </svg>
+  </div>
+  <div class="tricolour" aria-hidden="true"><i></i><i></i><i></i></div>
+</header>
+
+<main class="wrap">
+  <section aria-labelledby="h-today">
+    <h2 class="sec-h" id="h-today">Today <small id="today-date"></small></h2>
+    <div class="today-grid">
+      <article class="tc tc-art" id="t-art" aria-live="polite"></article>
+      <article class="tc tc-thk" id="t-thk" aria-live="polite"></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-papers">
+    <h2 class="sec-h" id="h-papers">Start with a paper</h2>
+    <div class="paper-grid">
+      <div class="paper pre">
+        <div class="p-head">
+          <span class="p-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg></span>
+          <h3>Prelims <small>Polity</small></h3>
+        </div>
+        <ul>
+          <li><a href="https://constitution.okayupsc.com/#/mcq"><span>Practice MCQs</span><em data-stat="mcqs">870</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          <li><a href="https://constitution.okayupsc.com/#/exam"><span>Important articles</span><em data-stat="important">159</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          <li><a href="https://constitution.okayupsc.com/#/amendments"><span>Amendments</span><em data-stat="amendments">106</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          <li><a href="https://constitution.okayupsc.com/#/schedules"><span>Schedules</span><em>12</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+        </ul>
+      </div>
+
+      <div class="paper gs2">
+        <div class="p-head">
+          <span class="p-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v17M8 20.5h8M4.5 7h15"/><path d="M4.5 7 2 13a2.5 2.5 0 0 0 5 0L4.5 7zM19.5 7 17 13a2.5 2.5 0 0 0 5 0l-2.5-6z"/></svg></span>
+          <h3>GS-II <small>Polity and governance</small></h3>
+        </div>
+        <ul>
+          <li><a href="https://constitution.okayupsc.com/#/parts"><span>Read any article</span><em data-stat="articles">471</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          <li><a href="https://constitution.okayupsc.com/#/cases"><span>Landmark judgments</span><em data-stat="judgments">125</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          <li><a href="https://constitution.okayupsc.com/#/maps"><span>Mind maps and flows</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          <li><a href="https://constitution.okayupsc.com/#/part/III"><span>Fundamental Rights</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+        </ul>
+      </div>
+
+      <div class="paper gs4">
+        <div class="p-head">
+          <span class="p-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span>
+          <h3>GS-IV <small>Ethics</small></h3>
+        </div>
+        <ul>
+          <li><a href="https://thinkers.okayupsc.com/#/all"><span>Thinkers</span><em data-stat="thinkers">91</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          <li><a href="https://thinkers.okayupsc.com/#/cases"><span>Case studies</span><em data-stat="caseStudies">81</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          <li><a href="https://thinkers.okayupsc.com/#/gs4pyq"><span>Past questions</span><em data-stat="gsq">257</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          <li><a href="https://thinkers.okayupsc.com/#/syllabus"><span>Syllabus map</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+        </ul>
+      </div>
+
+      <div class="paper ess">
+        <div class="p-head">
+          <span class="p-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l3.5-1 11-11a2.1 2.1 0 0 0-3-3l-11 11L4 20z"/><path d="M13.5 6.5l3 3"/></svg></span>
+          <h3>Essay <small>Essay paper</small></h3>
+        </div>
+        <ul>
+          <li><a href="https://thinkers.okayupsc.com/#/essays"><span>Model essays</span><em data-stat="essays">19</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          <li><a href="https://thinkers.okayupsc.com/#/pyq"><span>Past essay topics</span><em data-stat="topics">72</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          <li><a href="https://thinkers.okayupsc.com/#/quotes"><span>Quotations</span><em data-stat="quotes">317</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+          <li><a href="https://thinkers.okayupsc.com/#/atlas"><span>Stories and examples</span><em data-stat="stories">111</em><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-sites">
+    <h2 class="sec-h" id="h-sites">Open a site</h2>
+    <div class="site-grid">
+      <a class="site coi" href="https://constitution.okayupsc.com/">
+        <div class="s-head">
+          <img src="constitution.svg" alt="" width="64" height="64">
+          <div><h3>The Constitution of India for Exams</h3><p>Every article in plain words.</p></div>
+        </div>
+        <dl class="s-stats">
+          <div><dt data-stat="articles">471</dt><dd>articles</dd></div>
+          <div><dt data-stat="judgments">125</dt><dd>judgments</dd></div>
+          <div><dt data-stat="mcqs">870</dt><dd>MCQs</dd></div>
+        </dl>
+        <span class="s-go">Open the Constitution <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="site thk" href="https://thinkers.okayupsc.com/">
+        <div class="s-head">
+          <img src="thinkers.svg" alt="" width="64" height="64">
+          <div><h3>Thinkers for UPSC</h3><p>Ideas and quotations for Essay and Ethics.</p></div>
+        </div>
+        <dl class="s-stats">
+          <div><dt data-stat="thinkers">91</dt><dd>thinkers</dd></div>
+          <div><dt data-stat="quotes">317</dt><dd>quotations</dd></div>
+          <div><dt data-stat="caseStudies">81</dt><dd>case studies</dd></div>
+        </dl>
+        <span class="s-go">Open Thinkers <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </section>
 </main>
-<footer>Not an official publication. Not produced by, endorsed by or affiliated with the Union Public Service Commission or any government body.</footer>
+
+<footer>
+  <div class="wrap">
+    <p>Free to use. Not an official publication. Not produced by, endorsed by or affiliated with the Union Public Service Commission or any government body.</p>
+    <nav aria-label="Sites">
+      <a href="https://constitution.okayupsc.com/">Constitution</a>
+      <a href="https://thinkers.okayupsc.com/">Thinkers</a>
+    </nav>
+  </div>
+</footer>
 </body>
 </html>
