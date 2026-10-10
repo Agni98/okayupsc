@@ -59,9 +59,9 @@ const picks = Object.keys(exam).filter(k => exam[k].tier <= 2).map(k => {
 // The Thinkers site declares its data with const, so hand the names back out.
 const tw = {};
 vm.createContext(tw);
-const thkSrc = ['data.js', 'portraits.js', 'gs4pyq.js', 'essays.js', 'pyq.js', 'atlas.js']
+const thkSrc = ['data.js', 'portraits.js', 'gs4pyq.js', 'essays.js', 'pyq.js', 'atlas.js', 'answers.js', 'gs4concepts.js']
   .map(f => fs.readFileSync(path.join(THK, f), 'utf8')).join('\n;\n');
-vm.runInContext(thkSrc + '\n;this.out = { THINKERS, PORTRAITS, GS4_PYQ, ESSAYS, PYQ_PAPERS, ATLAS };', tw);
+vm.runInContext(thkSrc + '\n;this.out = { THINKERS, PORTRAITS, GS4_PYQ, ESSAYS, PYQ_PAPERS, ATLAS, ANSWERS, GS4_CONCEPTS };', tw);
 const T = tw.out;
 
 const shortQuote = qs => qs.find(q => q.length <= 140) ||
@@ -78,13 +78,18 @@ const stats = {
   // Some amendments changed no text and are not in the list, so count to the latest.
   amendments: Math.max.apply(null, cw.COI_AMENDMENTS.map(a => a.num)),
   important: Object.keys(exam).length,
+  // the provisions asked almost every cycle, and the MCQs written on them
+  coreArticles: Object.keys(exam).filter(k => exam[k].tier === 1).length,
+  coreMcqs: Object.keys(mcq).filter(k => exam[k] && exam[k].tier === 1).reduce((n, k) => n + mcq[k].length, 0),
   thinkers: T.THINKERS.length,
   quotes: T.THINKERS.reduce((n, t) => n + (t.quotes || []).length, 0),
   gsq: T.GS4_PYQ.length,
   caseStudies: T.GS4_PYQ.filter(q => q.sec === 'B').length,
   essays: Object.keys(T.ESSAYS).length,
   topics: T.PYQ_PAPERS.reduce((n, p) => n + p.a.length + p.b.length, 0),
-  stories: T.ATLAS.length
+  stories: T.ATLAS.length,
+  paragraphs: Object.keys(T.ANSWERS).reduce((n, k) => n + T.ANSWERS[k].length, 0),
+  concepts: Object.keys(T.GS4_CONCEPTS).reduce((n, k) => n + T.GS4_CONCEPTS[k].length, 0)
 };
 
 const data = {

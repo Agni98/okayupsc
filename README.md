@@ -5,7 +5,7 @@ The home page for okayupsc.com. It leads into the two study sites:
 - The Constitution of India for Exams, at constitution.okayupsc.com, from the `constitution-for-exams` repo.
 - Thinkers for UPSC, at thinkers.okayupsc.com, from the `upsc-thinkers` repo.
 
-The page has a search box that suggests articles, judgments and thinkers from both sites, an article and a thinker for each day, and links into each site by paper: Prelims, GS-II, GS-IV and Essay.
+The page has a search box that suggests articles, judgments and thinkers from both sites, an article and a thinker for each day, and links into each site by paper, in the order the exam is sat: Prelims, then Essay, GS-II and GS-IV in Mains.
 
 ## Files
 
