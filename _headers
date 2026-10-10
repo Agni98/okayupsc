@@ -1,8 +1,7 @@
 # Security headers, applied by Cloudflare Pages to the landing page. It loads
-# nothing from outside except Cloudflare's analytics script, the Roboto Slab
-# font from Google Fonts and the thinker portraits from Wikimedia. No other
-# site may show it inside a frame.
+# nothing from outside except Cloudflare's analytics script and the thinker
+# portraits from Wikimedia. No other site may show it inside a frame.
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://upload.wikimedia.org https://commons.wikimedia.org; connect-src 'self' https://cloudflareinsights.com; form-action 'none'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://upload.wikimedia.org https://commons.wikimedia.org; connect-src 'self' https://cloudflareinsights.com; form-action 'none'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
   X-Frame-Options: DENY
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()

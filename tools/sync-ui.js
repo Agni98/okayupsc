@@ -4,8 +4,9 @@
      node tools/sync-ui.js
 
    It expects the two sites next to this repo, as they are on the user's
-   computer: ../constitution/site and ../upsc-thinkers. It also checks that
-   each site's page carries the suite bar and loads the file.
+   computer: ../constitution/site and ../upsc-thinkers. It also copies the
+   Roboto Slab files in fonts/, and checks that each site's page carries the
+   suite bar and loads the file.
 
    Browsers keep a CSS file for up to four hours. The two sites ask for it
    with a fresh timestamp, but this page asks for okay-ui.css?v=<hash>, so the
@@ -30,7 +31,15 @@ const next = page.replace(/okay-ui\.css(\?v=[0-9a-f]*)?"/g, 'okay-ui.css?v=' + h
 if (next.indexOf('okay-ui.css?v=' + hash) < 0) { ok = false; console.log('Home: index.html does not load okay-ui.css'); }
 else if (next !== page) { fs.writeFileSync(home, next); console.log('Home: link set to v=' + hash); }
 else console.log('Home: already current');
+const fontDir = path.join(here, 'fonts');
+const fonts = fs.readdirSync(fontDir);
 for (const s of sites) {
+  const into = path.join(s.dir, 'fonts');
+  fs.mkdirSync(into, { recursive: true });
+  for (const f of fonts) {
+    const a = fs.readFileSync(path.join(fontDir, f)), to = path.join(into, f);
+    if (!fs.existsSync(to) || !a.equals(fs.readFileSync(to))) { fs.writeFileSync(to, a); console.log(s.name + ': copied fonts/' + f); }
+  }
   const dest = path.join(s.dir, 'okay-ui.css');
   const before = fs.existsSync(dest) ? fs.readFileSync(dest, 'utf8') : null;
   if (before !== css) fs.writeFileSync(dest, css);
