@@ -1,0 +1,125 @@
+/* OkayUPSC: the look shared by okayupsc.com and its two study sites.
+
+   Each site keeps a copy of this file next to its page. Edit the copy in the
+   okayupsc repo only, then run `node tools/sync-ui.js` there to copy it into
+   the Constitution and Thinkers sites.
+
+   The file holds the colours, type, borders and shadows every site reads, and
+   the navy suite bar at the top of every page that links the three sites.
+   Each site maps its own variable names onto these.
+
+   Dark mode follows the site's theme button where it has one (data-theme on
+   <html>), and the phone's setting where it does not. */
+
+:root {
+  /* paper and ink */
+  --ok-bg: #f6f4ef;            /* the page */
+  --ok-surface: #ffffff;       /* cards and panels */
+  --ok-surface-2: #fbfaf7;     /* the site header */
+  --ok-sunk: #ece8df;          /* wells, inputs and quiet chips */
+  --ok-ink: #1d1c1a;           /* body text */
+  --ok-ink-2: #55514a;         /* secondary text */
+  --ok-ink-3: #6f6a63;         /* captions and labels, 4.8:1 on the page */
+  --ok-head: #1f2a44;          /* headings */
+  --ok-line: #e2dcd1;
+  --ok-line-2: #ece7de;
+
+  /* the brand: navy for headings and the suite bar, saffron for rules,
+     navy blue for links and the item you are on, saffron-brown for buttons */
+  --ok-navy: #1f2a44;
+  --ok-saffron: #e0902f;       /* rules and underlines, never small text */
+  --ok-saffron-ink: #9a5514;   /* saffron as text: the captions over headings */
+  --ok-saffron-soft: #fdf0e1;
+  --ok-accent: #2f4b80;        /* links and the current item, 8.3:1 */
+  --ok-accent-2: #4a6aa6;
+  --ok-accent-soft: #edf1f8;
+  --ok-cta: #a8501a;           /* filled buttons */
+  --ok-cta-h: #8f4415;
+  --ok-cta-ink: #ffffff;
+
+  /* the suite bar, and the square mark beside each site's name */
+  --ok-suite: #1f2a44;
+  --ok-suite-ink: #c9cfdc;
+  --ok-mark-bg: #1f2a44;
+  --ok-mark-ink: #f0a54d;
+
+  /* type */
+  --ok-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Noto Serif", serif;
+  --ok-sans: "Segoe UI", Inter, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ok-mono: "Cascadia Mono", "SF Mono", Consolas, "Liberation Mono", monospace;
+
+  /* shape */
+  --ok-r-sm: 8px;
+  --ok-r: 12px;
+  --ok-r-lg: 16px;
+  --ok-r-mark: 10px;           /* the brand mark and the header's buttons */
+  --ok-shadow: 0 1px 2px rgba(31, 26, 18, .05), 0 6px 22px rgba(31, 26, 18, .06);
+  --ok-shadow-lg: 0 4px 12px rgba(31, 26, 18, .09), 0 24px 60px rgba(31, 26, 18, .14);
+
+  /* the two bars at the top of every page */
+  --ok-suite-h: 34px;
+  --ok-header-h: 60px;
+  --ok-suite-vis: 0px;         /* how much of the suite bar is on screen, set by each site's script */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ok-bg: #16171a; --ok-surface: #1e2024; --ok-surface-2: #1b1d21; --ok-sunk: #121316;
+    --ok-ink: #e8e6e1; --ok-ink-2: #b3afa7; --ok-ink-3: #8f8a82; --ok-head: #e6e8ef;
+    --ok-line: #2f3238; --ok-line-2: #26282d;
+    --ok-saffron: #f0a54d; --ok-saffron-ink: #e8a55a; --ok-saffron-soft: #33261a;
+    --ok-accent: #9fb5e3; --ok-accent-2: #bccbee; --ok-accent-soft: #212838;
+    --ok-cta: #e8a55a; --ok-cta-h: #f0b672; --ok-cta-ink: #1b1a19;
+    --ok-suite: #10141f; --ok-suite-ink: #aab3c5; --ok-mark-bg: #2a3553;
+    --ok-shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 22px rgba(0, 0, 0, .28);
+    --ok-shadow-lg: 0 4px 12px rgba(0, 0, 0, .4), 0 24px 60px rgba(0, 0, 0, .55);
+  }
+}
+:root[data-theme="dark"] {
+  --ok-bg: #16171a; --ok-surface: #1e2024; --ok-surface-2: #1b1d21; --ok-sunk: #121316;
+  --ok-ink: #e8e6e1; --ok-ink-2: #b3afa7; --ok-ink-3: #8f8a82; --ok-head: #e6e8ef;
+  --ok-line: #2f3238; --ok-line-2: #26282d;
+  --ok-saffron: #f0a54d; --ok-saffron-ink: #e8a55a; --ok-saffron-soft: #33261a;
+  --ok-accent: #9fb5e3; --ok-accent-2: #bccbee; --ok-accent-soft: #212838;
+  --ok-cta: #e8a55a; --ok-cta-h: #f0b672; --ok-cta-ink: #1b1a19;
+  --ok-suite: #10141f; --ok-suite-ink: #aab3c5; --ok-mark-bg: #2a3553;
+  --ok-shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 22px rgba(0, 0, 0, .28);
+  --ok-shadow-lg: 0 4px 12px rgba(0, 0, 0, .4), 0 24px 60px rgba(0, 0, 0, .55);
+}
+
+/* ---------- the suite bar ----------
+   A thin navy bar above each site's own header: OkayUPSC, then the two
+   sites, with a saffron rule under the one you are on. It scrolls away with
+   the page, and the site's header stays. */
+.ok-suite {
+  position: relative; z-index: 70;
+  display: flex; align-items: center; gap: 2px;
+  box-sizing: content-box;
+  height: var(--ok-suite-h); padding: env(safe-area-inset-top, 0px) 10px 0;
+  background: var(--ok-suite); color: var(--ok-suite-ink);
+  font: 600 13px/1 var(--ok-sans);
+  overflow-x: auto; scrollbar-width: none;
+  -webkit-font-smoothing: antialiased;
+}
+.ok-suite::-webkit-scrollbar { display: none; }
+.ok-suite a {
+  position: relative; flex: none;
+  display: inline-flex; align-items: center; gap: 7px;
+  height: 100%; padding: 0 10px;
+  color: inherit; text-decoration: none; white-space: nowrap;
+  transition: color .15s ease;
+}
+.ok-suite a:hover { color: #fff; text-decoration: none; }
+.ok-suite a:focus-visible { outline: 2px solid var(--ok-saffron); outline-offset: -4px; border-radius: 6px; }
+.ok-suite a[aria-current="page"] { color: #fff; }
+.ok-suite a[aria-current="page"]::after {
+  content: ""; position: absolute; left: 10px; right: 10px; bottom: 0;
+  height: 3px; border-radius: 3px 3px 0 0; background: var(--ok-saffron);
+}
+.ok-suite .ok-home { margin-right: 4px; padding-left: 4px; color: #fff; font: 600 14.5px/1 var(--ok-serif); letter-spacing: -.01em; }
+.ok-suite .ok-home svg { width: 18px; height: 18px; flex: none; }
+.ok-suite .ok-sep { flex: none; width: 1px; height: 14px; margin: 0 4px; background: rgba(255, 255, 255, .18); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ok-suite a { transition: none; }
+}
