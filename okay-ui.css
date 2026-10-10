@@ -43,8 +43,9 @@
   --ok-mark-bg: #1f2a44;
   --ok-mark-ink: #f0a54d;
 
-  /* type */
-  --ok-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Noto Serif", serif;
+  /* type: Roboto Slab for headings and reading, loaded by each page from
+     Google Fonts; the system sans for menus, labels and buttons */
+  --ok-serif: "Roboto Slab", Rockwell, Georgia, "Noto Serif", serif;
   --ok-sans: "Segoe UI", Inter, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
   --ok-mono: "Cascadia Mono", "SF Mono", Consolas, "Liberation Mono", monospace;
 
