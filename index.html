@@ -192,9 +192,10 @@
   .tc-label b { font-family: var(--serif); font-size: 32px; font-weight: 600; line-height: 1.05; letter-spacing: -.02em; color: var(--head); }
   .tier { font-size: 12.5px; font-weight: 600; color: var(--soft); }
   .tier::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: var(--sun); vertical-align: 1px; }
-  .tc-title { margin: -4px 0 0; font-size: 18px; font-weight: 600; line-height: 1.35; }
+  .tc-title { margin: -4px 0 0; font: 600 18px/1.4 var(--serif); color: var(--head); }
   .tc-title a:hover { color: var(--accent); }
-  .tc-text { margin: 0; color: var(--soft); font-size: 15.5px; }
+  /* the reading text is set as on the two sites: Roboto Slab, with room between the lines */
+  .tc-text { margin: 0; font: 16px/1.72 var(--serif); color: var(--ok-read-ink); }
   .tc-acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 4px; }
   .btn {
     display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 16px; border-radius: var(--ok-r-sm);
@@ -219,7 +220,7 @@
   .tk-name small { margin-top: 4px; font-size: 13.5px; color: var(--soft); }
   .tk-q {
     position: relative; margin: 4px 0 0; padding: 0 0 0 18px; border-left: 3px solid var(--ok-saffron);
-    font-family: var(--serif); font-size: 19px; line-height: 1.45; font-style: italic;
+    font: 18px/1.55 var(--serif); color: var(--ok-read-ink);
   }
 
   /* papers */
@@ -265,7 +266,7 @@
   .s-head { display: flex; align-items: center; gap: 16px; }
   .s-head img { width: 60px; height: 60px; border-radius: 14px; flex: none; }
   .s-head h3 { margin: 0; font-family: var(--serif); font-size: 22px; font-weight: 600; line-height: 1.2; color: var(--head); }
-  .s-head p { margin: 3px 0 0; color: var(--soft); font-size: 15px; }
+  .s-head p { margin: 3px 0 0; font: 15.5px/1.6 var(--serif); color: var(--ok-read-ink); }
   .s-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0; }
   .s-stats div { padding: 10px 12px; border-radius: var(--ok-r-sm); background: var(--ok-sunk); }
   .s-stats dt { font-family: var(--serif); font-size: 22px; font-weight: 600; line-height: 1.1; color: var(--head); }
@@ -312,7 +313,8 @@
     .tc-label b { font-size: 29px; }
     .tk-face { width: 64px; height: 64px; }
     .tk-name b { font-size: 24px; }
-    .tk-q { font-size: 18px; }
+    .tk-q { font-size: 17px; }
+    .tc-text { font-size: 15.5px; }
     .site { padding: 20px 16px; }
     .s-head img { width: 54px; height: 54px; border-radius: 12px; }
     .s-stats div { padding: 8px 10px; }
