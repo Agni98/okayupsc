@@ -35,6 +35,7 @@
   --ok-ink: #1d1c1a;           /* body text */
   --ok-ink-2: #55514a;         /* secondary text */
   --ok-ink-3: #6f6a63;         /* captions and labels, 4.8:1 on the page */
+  --ok-read-ink: #3a3835;      /* long reading text, a step softer than body ink */
   --ok-head: #1f2a44;          /* headings */
   --ok-line: #e2dcd1;
   --ok-line-2: #ece7de;
@@ -81,7 +82,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --ok-bg: #16171a; --ok-surface: #1e2024; --ok-surface-2: #1b1d21; --ok-sunk: #121316;
-    --ok-ink: #e8e6e1; --ok-ink-2: #b3afa7; --ok-ink-3: #8f8a82; --ok-head: #e6e8ef;
+    --ok-ink: #e8e6e1; --ok-ink-2: #b3afa7; --ok-ink-3: #8f8a82; --ok-head: #e6e8ef; --ok-read-ink: #dcd8d2;
     --ok-line: #2f3238; --ok-line-2: #26282d;
     --ok-saffron: #f0a54d; --ok-saffron-ink: #e8a55a; --ok-saffron-soft: #33261a;
     --ok-accent: #9fb5e3; --ok-accent-2: #bccbee; --ok-accent-soft: #212838;
@@ -93,7 +94,7 @@
 }
 :root[data-theme="dark"] {
   --ok-bg: #16171a; --ok-surface: #1e2024; --ok-surface-2: #1b1d21; --ok-sunk: #121316;
-  --ok-ink: #e8e6e1; --ok-ink-2: #b3afa7; --ok-ink-3: #8f8a82; --ok-head: #e6e8ef;
+  --ok-ink: #e8e6e1; --ok-ink-2: #b3afa7; --ok-ink-3: #8f8a82; --ok-head: #e6e8ef; --ok-read-ink: #dcd8d2;
   --ok-line: #2f3238; --ok-line-2: #26282d;
   --ok-saffron: #f0a54d; --ok-saffron-ink: #e8a55a; --ok-saffron-soft: #33261a;
   --ok-accent: #9fb5e3; --ok-accent-2: #bccbee; --ok-accent-soft: #212838;
